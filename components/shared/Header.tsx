@@ -7,7 +7,7 @@ import MobileNav from "./MobileNav"
 
 const Header = () => {
   return (
-    <header className="w-full border-b">
+    <header className="w-full border-b bg-black mx-0 mb-0 my-0 shadow-sm">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="w-36">
           <Image 
@@ -30,8 +30,8 @@ const Header = () => {
           </SignedIn>
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
-              <Link href="/sign-in">
-                Login
+              <Link href="/sign-in" className="bg-red-600 hover:bg-red-700 text-white px-2 py-0 rounded-full">
+                Event Login
               </Link>
             </Button>
           </SignedOut>
