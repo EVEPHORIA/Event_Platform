@@ -10,6 +10,8 @@ import AboutSection from '@/components/shared/AboutSection';
 import ContactSection from '@/components/shared/ContactSection';
 import ThreeCModelSection from '@/components/shared/ThreeCModelSection';
 import EventManagementSection from '@/components/shared/EventManagementSection';
+import BlogSection from '@/components/shared/BlogSection';
+
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -74,9 +76,14 @@ export default async function Home({ searchParams }: SearchParamProps) {
           totalPages={events?.totalPages}
         />
       </section>
-      <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+      
+        <section className="flex flex-col gap-8 md:gap-12">
+          <BlogSection />
+          </section>
+      <section className="wrapper  my-8 flex flex-col gap-8 md:gap-12">
         <ContactSection />
       </section>
+
 </>
   )
 }
