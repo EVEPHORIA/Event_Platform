@@ -20,10 +20,11 @@ export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploader
     onFieldChange(convertFileToUrl(acceptedFiles[0]))
   }, [])
 
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-    accept: 'image/*' ? generateClientDropzoneAccept(['image/*']) : undefined,
-  })
+ const { getRootProps, getInputProps } = useDropzone({
+  onDrop,
+  accept: generateClientDropzoneAccept(['image/*']),
+})
+
 
   return (
     <div
