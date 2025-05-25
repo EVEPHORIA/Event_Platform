@@ -96,10 +96,11 @@ export async function getOrCreateUserFromClerk() {
   if (!user) {
     user = await User.create({
       _id: clerkUser.id,
+      email: clerkUser.emailAddresses[0]?.emailAddress,
+      username: clerkUser.username || clerkUser.emailAddresses[0]?.emailAddress, // fallback if username missing
       firstName: clerkUser.firstName,
       lastName: clerkUser.lastName,
-      email: clerkUser.emailAddresses[0]?.emailAddress,
-      // ...add other fields as needed
+      photo: clerkUser.imageUrl, // Clerk provides imageUrl
     })
   }
   return user
