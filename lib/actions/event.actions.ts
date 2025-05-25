@@ -7,6 +7,7 @@ import Event from '@/lib/database/models/event.model'
 import User from '@/lib/database/models/user.model'
 import Category from '@/lib/database/models/category.model'
 import { handleError } from '@/lib/utils'
+import { getOrCreateUserFromClerk } from '@/lib/actions/user.actions'
 
 import {
   CreateEventParams,
@@ -28,21 +29,34 @@ const populateEvent = (query: any) => {
 }
 
 // CREATE
-export async function createEvent({ userId, event, path }: CreateEventParams) {
+export async function createEvent({ event, path }: CreateEventParams) {
+  const user = await getOrCreateUserFromClerk()
+  const userId = user._id
+
   try {
     await connectToDatabase()
+    console.log('✅ Database connected')
 
     const organizer = await User.findById(userId)
+    console.log('🔎 Looking for organizer with userId:', userId)
     if (!organizer) throw new Error('Organizer not found')
-    
-    
 
-    const newEvent = await Event.create({ ...event, category: event.categoryId, organizer: userId })
+    // Optionally, check if category exists
+    const categoryExists = await Category.findById(event.categoryId)
+    if (!categoryExists) throw new Error('Category not found')
+
+    const newEvent = await Event.create({
+      ...event,
+      category: event.categoryId,
+      organizer: userId,
+    })
+
     revalidatePath(path)
 
     return JSON.parse(JSON.stringify(newEvent))
   } catch (error) {
-    handleError(error)
+    console.error('❌ Error in createEvent:', error)
+    throw new Error('Event creation failed. ' + (error as Error).message)
   }
 }
 

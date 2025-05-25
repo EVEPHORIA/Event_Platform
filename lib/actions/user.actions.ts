@@ -1,6 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
+import { currentUser } from '@clerk/nextjs/server'
 
 import { connectToDatabase } from '@/lib/database'
 import User from '@/lib/database/models/user.model'
@@ -78,4 +79,28 @@ export async function deleteUser(clerkId: string) {
   } catch (error) {
     handleError(error)
   }
+}
+
+export async function getClerkUser() {
+  const user = await currentUser()
+  if (!user) throw new Error('Not signed in')
+  return user // user.id is Clerk userId
+}
+
+export async function getOrCreateUserFromClerk() {
+  await connectToDatabase()
+  const clerkUser = await currentUser()
+  if (!clerkUser) throw new Error('Not signed in')
+
+  let user = await User.findById(clerkUser.id)
+  if (!user) {
+    user = await User.create({
+      _id: clerkUser.id,
+      firstName: clerkUser.firstName,
+      lastName: clerkUser.lastName,
+      email: clerkUser.emailAddresses[0]?.emailAddress,
+      // ...add other fields as needed
+    })
+  }
+  return user
 }
