@@ -87,12 +87,12 @@ export default function EventManagementSection() {
 
         {/* Bottom Buttons */}
         <div className="flex flex-col md:flex-row justify-center gap-6 mt-6">
-          <button className="bg-white text-black px-6 py-3 rounded-xl hover:bg-red-600 transition font-semibold">
+         {/* Bottom Buttons  <button className="bg-white text-black px-6 py-3 rounded-xl hover:bg-red-600 transition font-semibold">
             Vendor Login
           </button>
           <button className="bg-white text-black px-6 py-3 rounded-xl hover:bg-red-600 transition font-semibold">
             Event Organizer Login
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

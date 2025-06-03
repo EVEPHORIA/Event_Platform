@@ -2,6 +2,10 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import im from '../../public/assets/images/commercial.jpg';
+import im2 from '../../public/assets/images/corporte.jpg';
+import im3 from '../../public/assets/images/crowned.jpg';
+
 
 const eventDetails = {
   corporate: {
@@ -19,7 +23,7 @@ const eventDetails = {
       'Award ceremonies (corporate level)',
       'Networking events',
     ],
-    image: '/images/corporate.jpg', // Replace with your actual image path
+    image: im2, // Replace with your actual image path
   },
   commercial: {
     title: 'COMMERCIAL EVENTS',
@@ -38,7 +42,7 @@ const eventDetails = {
       'Fashion shows',
       'Charity galas',
     ],
-    image: '/images/commercial.jpg', // Replace with your actual image path
+    image: im // Replace with your actual image path
   },
   crowned: {
     title: 'CROWNED EVENTS',
@@ -56,7 +60,7 @@ const eventDetails = {
       'Elite social gatherings',
       'Luxury brand launch parties',
     ],
-    image: '/images/crowned.jpg', // Replace with your actual image path
+    image: im3 // Replace with your actual image path
   },
 };
 
@@ -114,11 +118,18 @@ export default function ThreeCModelSection() {
               height={400}
               className="w-full h-auto rounded-lg mb-4"
             />
-            <ul className="list-disc pl-6 space-y-2 text-sm sm:text-base">
-              {eventDetails[selected].items.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
+            <ul className="grid gap-3 sm:grid-cols-2 text-sm sm:text-base">
+  {eventDetails[selected].items.map((item, idx) => (
+    <li
+      key={idx}
+      className="flex items-start gap-2 bg-black text-white rounded-lg p-3 border-l-4 border-red-600 hover:bg-red-600 hover:text-white transition-colors duration-200"
+    >
+      <span className="text-red-600 font-bold">•</span>
+      <span>{item}</span>
+    </li>
+  ))}
+</ul>
+
           </div>
         </div>
       )}
