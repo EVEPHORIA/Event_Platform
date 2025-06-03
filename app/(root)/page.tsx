@@ -30,7 +30,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
       <section className="bg-black bg-dotted-pattern bg-contain py-5 md:py-10">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
-            <h1 className="h1-bold text-white">Where Every Soul Comes Alive</h1>
+            <h1 className="h1-bold text-white">EVEPHORIA- <br></br>Where Every Soul Comes Alive</h1>
             <p className="p-regular-20 md:p-regular-24 text-red-300">From planning to execution, we handle every detail—so you can enjoy a seamless, stress-free celebration. Let's create magic!</p>
             <Button size="lg" asChild className="button w-full sm:w-fit">
               <Link href="#events" className='bg-red-600 hover:bg-red-700 text-white'>
