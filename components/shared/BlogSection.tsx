@@ -3,6 +3,8 @@ import Link from 'next/link'
 import tip from '../../public/assets/images/flaw.jpg';
 import roi from '../../public/assets/images/roi.jpg';
 import fut from '../../public/assets/images/fut.jpg';
+import type { StaticImageData } from 'next/image';
+
 type Post = {
   id: number
   title: string
