@@ -60,8 +60,8 @@ export default function ContactSection() {
           </form>
 
           <div className="mt-8 text-gray-400 text-sm space-y-1">
-            <p>Email: info@onophoraevents.com</p>
-            <p>Phone: 844‑820‑4579</p>
+            <p>Email: evephoria.social@gmail.com </p>
+            <p>Phone: 844‑870‑4579</p>
           </div>
         </div>
 

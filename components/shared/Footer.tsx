@@ -45,8 +45,8 @@ const Footer = () => {
           <h3 className="font-semibold text-white mb-2">Platform</h3>
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="/" className="hover:text-red-500">Home</Link></li>
-            <li><Link href="/vendor-registration" className="hover:text-red-500">Vendor Registration</Link></li>
-            <li><Link href="/event-registration" className="hover:text-red-500">Event Registration</Link></li>
+            <li><Link href="/" className="hover:text-red-500">Vendor Registration</Link></li>
+            <li><Link href="/" className="hover:text-red-500">Event Registration</Link></li>
           </ul>
         </div>
 
