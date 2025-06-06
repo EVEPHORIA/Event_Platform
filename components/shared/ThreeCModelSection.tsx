@@ -54,7 +54,6 @@ const eventDetails = {
       'Luxury weddings',
       'Private concerts',
       'Exclusive red-carpet events',
-      'Fashion events (exclusive, invitation-only)',
       'Private fundraisers',
       'Celebrity events',
       'Elite social gatherings',
@@ -68,7 +67,7 @@ export default function ThreeCModelSection() {
   const [selected, setSelected] = useState<null | 'corporate' | 'commercial' | 'crowned'>(null);
 
   return (
-    <section className="bg-black text-white py-16 px-4 md:px-16 relative z-10">
+    <section id="services" className="bg-black text-white py-16 px-4 md:px-16 relative z-10">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
         <p className="text-gray-300 max-w-2xl mx-auto mb-12">

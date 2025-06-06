@@ -4,7 +4,7 @@ import { FaUserPlus, FaCalendarAlt, FaFileContract, FaRobot, FaChartBar, FaLock 
 
 export default function EventManagementSection() {
   return (
-    <section className="bg-black text-white py-16 px-4 md:px-16">
+    <section id="solutions" className="bg-black text-white py-16 px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="md:flex justify-between items-start mb-12">
           <h2 className="text-3xl md:text-4xl text-white font-bold max-w-lg">

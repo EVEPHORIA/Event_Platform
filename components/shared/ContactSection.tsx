@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function ContactSection() {
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-r from-black via-black to-black text-white relative">
+    <section id="contacts" className=" py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-r from-black via-black to-black text-white relative">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left - Form */}
         <div className="text-center md:text-left">
