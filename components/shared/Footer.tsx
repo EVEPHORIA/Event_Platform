@@ -274,7 +274,6 @@ We will let you know via email and/or a prominent notice on our Service, prior t
 You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
 20. Contact Us
 If you have any questions about this Privacy Policy, please contact us by email: team@evephoriaevents.com.
-This Privacy Policy was created for https://www.evephoriaevents.com by PolicyMaker.io on 2025-04-16.
 `}
             </div>
           }
@@ -284,7 +283,7 @@ This Privacy Policy was created for https://www.evephoriaevents.com by PolicyMak
 
       {mounted && showTerms && (
         <Modal
-          title="Terms of Service"
+          title="Terms and Conditions"
           content={
             <div style={{ whiteSpace: "pre-line", fontSize: "0.95rem", lineHeight: "1.6" }}>
               {`TERMS AND CONDITIONS
@@ -400,7 +399,6 @@ If any provision of Terms is held by a court or other tribunal of competent juri
 BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY THEM.
 27. Contact Us
 Please send your feedback, comments, requests for technical support by email: team@evephoriaevents.com.
-These Terms of Service were created for https://www.evephoriaevents.com/ by PolicyMaker.io on 2025-04-16.
 `}
             </div>
           }
