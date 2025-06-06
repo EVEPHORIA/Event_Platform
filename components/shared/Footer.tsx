@@ -5,7 +5,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaYoutube, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
-const Modal = ({ title, content, onClose }) => (
+type ModalProps = {
+  title: string;
+  content: React.ReactNode;
+  onClose: () => void;
+};
+
+const Modal = ({ title, content, onClose }: ModalProps) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
     <div className="bg-white text-gray-900 rounded-xl shadow-2xl max-w-lg w-full p-8 relative">
       <button
