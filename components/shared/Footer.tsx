@@ -116,7 +116,7 @@ const Footer = () => {
                 className="hover:text-red-500 bg-transparent border-none p-0 outline-none"
                 onClick={() => setShowTerms(true)}
               >
-                Terms of Service
+                Terms and Conditions
               </button>
             </li>
           </ul>
