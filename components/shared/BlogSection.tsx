@@ -76,7 +76,11 @@ export default function BlogSection() {
   async function handleDelete(id: number | string) {
     if (!isAdmin) return
     setLoading(true)
-    await fetch(`/api/blog?id=${id}`, { method: 'DELETE' })
+    await fetch('/api/blog', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }),
+    })
     setPosts(posts.filter(post => post._id !== id && post.id !== id))
     setLoading(false)
   }
