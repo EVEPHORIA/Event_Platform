@@ -215,14 +215,16 @@ function PostCard({
       </div>
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-white text-gray-900 rounded-xl shadow-2xl max-w-lg w-full p-8 relative">
-            <button
-              className="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-2xl font-bold"
-              onClick={() => setShowPopup(false)}
-              aria-label="Close"
-            >
-              &times;
-            </button>
+          <div className="bg-white text-gray-900 rounded-xl shadow-2xl max-w-lg w-full p-8 relative flex flex-col max-h-[90vh] justify-start">
+            <div className="flex justify-end sticky top-0 bg-white z-10">
+              <button
+                className="text-gray-500 hover:text-red-600 text-2xl font-bold"
+                onClick={() => setShowPopup(false)}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+            </div>
             <h3 className="text-2xl font-bold mb-4">{post.title}</h3>
             {post.imgSrc && (
               <img
