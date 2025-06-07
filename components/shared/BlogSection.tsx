@@ -128,6 +128,8 @@ export default function BlogSection() {
               accept="image/*"
               onChange={handleChange}
               className="border rounded px-3 py-2"
+              aria-label="Upload post image"
+              title="Upload post image"
             />
             {imgPreview && (
               <img
@@ -229,7 +231,9 @@ function PostCard({
                 className="w-full h-48 object-cover rounded mb-4"
               />
             )}
-            <div className="whitespace-pre-line text-base">{post.excerpt}</div>
+            <div className="whitespace-pre-line text-base max-h-[60vh] overflow-y-auto">
+              {post.excerpt}
+            </div>
           </div>
         </div>
       )}
