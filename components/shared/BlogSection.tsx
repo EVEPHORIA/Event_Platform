@@ -14,12 +14,13 @@ type Post = {
 }
 
 // --- Admin User ---
-const ADMIN_USER_ID = "user_2y8oHq8KzzpfbzGW4lWeLu9T96F"
+const ADMIN_USER_ID = ["user_2y8oHq8KzzpfbzGW4lWeLu9T96F",
+  "user_2xUTyGm8gEB6NITRsoDDTdJPCPT",];
 
 // --- Blog Section ---
 export default function BlogSection() {
   const { user } = useUser()
-  const isAdmin = user?.id === ADMIN_USER_ID
+  const isAdmin = user && ADMIN_USER_ID.includes(user.id);
 
   const [posts, setPosts] = useState<Post[]>([])
   const [form, setForm] = useState({ title: '', excerpt: '', imgSrc: '' })
