@@ -11,8 +11,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'EVEPHORIA',
-  description: 'Evephoria is a platform for event management.',
+  title: 'EVEPHORIA- Where Every Soul Comes Alive',
+  description: 'From planning to execution, we handle every detail—so you can enjoy a seamless, stress-free celebration. Let’s create your event, your way—unforgettable, flawless, and full of joy!',
   icons: {
     icon: '/assets/images/image.png'
   }
