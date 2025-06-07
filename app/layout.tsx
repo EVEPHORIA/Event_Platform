@@ -15,7 +15,17 @@ export const metadata: Metadata = {
   description: 'From planning to execution, we handle every detail—so you can enjoy a seamless, stress-free celebration. Let’s create your event, your way—unforgettable, flawless, and full of joy!',
   icons: {
     icon: '/assets/images/image.png'
-  }
+  },
+  openGraph: {
+    images: [
+      {
+        url: '/assets/images/image.png', // <-- Use a wide, banner-style image for best results
+        width: 1200,
+        height: 630,
+        alt: 'EVEPHORIA - Where Every Soul Comes Alive',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({

@@ -32,8 +32,9 @@ export default function BlogSection() {
   useEffect(() => {
     fetch('/api/blog')
       .then(res => res.json())
-      .then(data => setPosts(data.posts || []))
-  }, [])
+      .then(data => setPosts(Array.isArray(data?.posts) ? data.posts : []))
+      .catch(() => setPosts([]))
+    }, [])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value, files } = e.target as HTMLInputElement
