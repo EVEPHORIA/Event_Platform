@@ -20,7 +20,7 @@ const ADMIN_USER_ID = ["user_2y8oHq8KzzpfbzGW4lWeLu9T96F",
 // --- Blog Section ---
 export default function BlogSection() {
   const { user } = useUser()
-  const isAdmin = user && ADMIN_USER_ID.includes(user.id);
+  const isAdmin = !!user && ADMIN_USER_ID.includes(user.id);
 
   const [posts, setPosts] = useState<Post[]>([])
   const [form, setForm] = useState({ title: '', excerpt: '', imgSrc: '' })
