@@ -65,14 +65,37 @@ const Footer = () => {
             Where every event becomes an experience, connecting vendors and event organizers on a single platform.
           </p>
           <div className="flex gap-4 mt-4">
-            <Link href="https://www.instagram.com/evephoriaevents/" target="_blank" rel="noopener noreferrer" className="hover:text-red-500">
+            <Link
+              href="https://www.instagram.com/evephoriaevents/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-500"
+            >
               <FaInstagram size={20} />
             </Link>
-            <Link href="https://www.linkedin.com/company/evephoriaevents" target="_blank" rel="noopener noreferrer" className="hover:text-red-500">
+            <Link
+              href="https://www.linkedin.com/company/evephoriaevents"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-500"
+            >
               <FaLinkedin size={20} />
             </Link>
-            <Link href="https://x.com/evephoriaevents" target="_blank" rel="noopener noreferrer" className="hover:text-red-500">
+            <Link
+              href="https://x.com/evephoriaevents"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-500"
+            >
               <FaXTwitter size={20} />
+            </Link>
+            <Link
+              href="https://www.youtube.com/channel/UCBhGzbGPBX5DB0XE5geDB4g"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-500"
+            >
+              <FaYoutube size={20} />
             </Link>
           </div>
         </div>
