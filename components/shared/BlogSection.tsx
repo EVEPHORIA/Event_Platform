@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useUser } from "@clerk/nextjs"
 import type { StaticImageData } from 'next/image'
 
@@ -86,11 +86,29 @@ export default function BlogSection() {
     setLoading(false)
   }
 
+  // Pagination state for horizontal slider
+  const [startIdx, setStartIdx] = useState(0);
+  const POSTS_PER_PAGE = 3;
+
+  const visiblePosts = posts.slice(startIdx, startIdx + POSTS_PER_PAGE);
+
+  const handleNext = () => {
+    if (startIdx + POSTS_PER_PAGE < posts.length) {
+      setStartIdx(startIdx + POSTS_PER_PAGE);
+    }
+  };
+
+  const handlePrev = () => {
+    if (startIdx - POSTS_PER_PAGE >= 0) {
+      setStartIdx(startIdx - POSTS_PER_PAGE);
+    }
+  };
+
   return (
     <section className="py-16 bg-black text-white">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-2 tracking-wide leading-tight text-white">Blog Posts</h2>
-        <p className="text-gray-400 mb-12 text-lg">Insights & inspiration from the EVEPHORIA Team</p>
+        <p className="text-gray-400 mb-12 text-lg">Insights from the EVEPHORIA Team</p>
 
         {isAdmin && (
           <button
@@ -149,15 +167,37 @@ export default function BlogSection() {
           </form>
         )}
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {posts.map((post) => (
-            <PostCard
-              key={post._id || post.id}
-              post={post}
-              onDelete={isAdmin ? handleDelete : undefined}
-              isAdmin={isAdmin}
-            />
-          ))}
+        {/* Carousel-like horizontal posts */}
+        <div className="relative">
+          <div className="flex justify-between items-center mb-2">
+            <button
+              className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 transition disabled:opacity-50"
+              onClick={handlePrev}
+              disabled={startIdx === 0}
+              type="button"
+            >
+              &larr; Prev
+            </button>
+            <button
+              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition disabled:opacity-50"
+              onClick={handleNext}
+              disabled={startIdx + POSTS_PER_PAGE >= posts.length}
+              type="button"
+            >
+              Next &rarr;
+            </button>
+          </div>
+          <div className="flex gap-6 justify-center">
+            {visiblePosts.map((post) => (
+              <div key={post._id || post.id} className="min-w-[320px] max-w-xs flex-shrink-0">
+                <PostCard
+                  post={post}
+                  onDelete={isAdmin ? handleDelete : undefined}
+                  isAdmin={isAdmin}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -179,7 +219,7 @@ function PostCard({
   return (
     <>
       <div
-        className="bg-white text-gray-900 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden flex flex-col animate-fade-up"
+        className="bg-white text-gray-900 rounded-2xl shadow-xl transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden flex flex-col animate-fade-up min-w-[320px] max-w-xs h-[420px] justify-between"
       >
         <div className="relative w-full h-48 group">
           {post.imgSrc && (
@@ -191,11 +231,13 @@ function PostCard({
             />
           )}
         </div>
-        <div className="p-6 flex-1 flex flex-col">
-          <h3 className="text-xl font-semibold mb-2 hover:text-red-600 transition-colors">{post.title}</h3>
-          <p className="text-sm mb-4 text-gray-600">
-            {post.excerpt.length > 100 ? post.excerpt.slice(0, 100) + '...' : post.excerpt}
-          </p>
+        <div className="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl font-semibold mb-2 hover:text-red-600 transition-colors">{post.title}</h3>
+            <p className="text-sm mb-4 text-gray-600">
+              {post.excerpt.length > 100 ? post.excerpt.slice(0, 100) + '...' : post.excerpt}
+            </p>
+          </div>
           <div className="flex gap-2 mt-auto">
             <button
               className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
