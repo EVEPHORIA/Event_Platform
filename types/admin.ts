@@ -1,5 +1,5 @@
 export const ADMIN_USER_IDS = [
   "user_2y8oHq8KzzpfbzGW4lWeLu9T96F",
   "user_2xUTyGm8gEB6NITRsoDDTdJPCPT",
-  // Add more admin Clerk IDs here
+  // ...other admin user IDs
 ];

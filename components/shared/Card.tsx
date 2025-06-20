@@ -1,4 +1,4 @@
-import { ADMIN_USER_ID } from '@/constants/admin';
+import { ADMIN_USER_IDS } from '@/constants/admin';
 import { IEvent } from '@/lib/database/models/event.model'
 import { formatDateTime } from '@/lib/utils'
 import { auth } from '@clerk/nextjs'
@@ -17,7 +17,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
 
-  const isAdmin = ADMIN_USER_ID.includes(userId);
+  const isAdmin = ADMIN_USER_IDS.includes(userId);
   const isEventCreator = userId === event.organizer._id.toString();
   const canManageEvent = isAdmin || isEventCreator;
 
